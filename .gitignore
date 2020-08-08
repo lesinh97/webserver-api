@@ -1,0 +1,4 @@
+# enviroment variable
+.env
+# useless modules
+node_modules/
