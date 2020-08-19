@@ -43,8 +43,22 @@ const createProduct = (req,res) => {
     res.status(200).json()
   })
 }
+const updateProduct = (req, res) => {
+  let request_ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress).split(',')[0].trim().match(ipv4);
+  const {productname, productcomment, productjancode} = req.body
+  console.log(req.body)
+  Products.update({productcomment: productcomment, productname: productname}, {
+    where: {
+      productjancode: productjancode
+    }
+  }).then(data => {
+    console.log('Updated '+JSON.stringify(data.productname)+' at: '+new Date().toLocaleString()+' from IP: '+request_ip);
+    res.status(200).json();
+  })
+}
 module.exports = {
   getProducts,
   findProducts,
-  createProduct
+  createProduct,
+  updateProduct
 }
