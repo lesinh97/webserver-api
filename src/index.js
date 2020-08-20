@@ -4,7 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 const { database } = require('./database')
-const { getProducts, findProducts, createProduct, updateProduct } = require('./queries')
+const { getProducts, findProducts, createProduct, updateProduct, deleteProdut } = require('./queries')
 
 const port = process.env.SERVER_PORT
 
@@ -25,6 +25,7 @@ app.get('/products', getProducts);
 app.post('/find/product',findProducts);
 app.post('/products', createProduct);
 app.post('/alter/product', updateProduct);
+app.post('/delete/product', deleteProdut);
 
 database.sync({ alter:true }).then(() => {
   console.log('Default mode: Sync state between sequelize and database.')
