@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BarcodeReader.Views.ConnectionAlert">
+    
+    <StackLayout IsVisible="{Binding IsNotConnected, Mode=OneWay}"
+             BackgroundColor="OrangeRed">
+        <Label Text="{Binding ConnectionState, Mode=OneWay}" HorizontalOptions="CenterAndExpand" TextColor="White" />
+    </StackLayout>
+    <StackLayout IsVisible="{Binding IsConnected, Mode=OneWay}"
+             BackgroundColor="LawnGreen">
+        <Label Text="{Binding ConnectionState, Mode=OneWay}" HorizontalOptions="CenterAndExpand" TextColor="Black" />
+    </StackLayout>
+</StackLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage>
+  <Layout>
+    <name>StackLayout</name>
+    <HorizontalOptions>LayoutOptions.Center</HorizontalOptions>
+    <VerticalOptions>LayoutOptions.CenterAndExpand</VerticalOptions>
+  </Layout>
+  <LayoutComponents>
+    <Button>
+      <name>showButton</name>
+      <Text>商品詳細</Text>
+      <Command>ViewCommand</Command>
+      <HorizontalOptions>LayoutOptions.Center</HorizontalOptions>
+      <VerticalOptions>LayoutOptions.CenterAndExpand</VerticalOptions>
+    </Button>
+    <Button>
+      <name>scanButton</name>
+      <Text>スキャン</Text>
+      <Command>ScanCommand</Command>
+      <HorizontalOptions>LayoutOptions.Center</HorizontalOptions>
+      <VerticalOptions>LayoutOptions.CenterAndExpand</VerticalOptions>
+    </Button>
+  </LayoutComponents>
+</ContentPage>

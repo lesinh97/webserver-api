@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const path = require('path')
 
 const { database } = require('./database')
 const { getProducts, findProducts, createProduct, updateProduct, deleteProdut } = require('./queries')
@@ -26,6 +27,10 @@ app.post('/find/product',findProducts);
 app.post('/products', createProduct);
 app.post('/alter/product', updateProduct);
 app.post('/delete/product', deleteProdut);
+app.get('/view/setting', (req, res) => {
+  res.contentType('application/xml').status(200).sendFile(path.join(__dirname, 'viewsetting.xml'));
+  console.log("XML downloaded");
+});
 
 database.sync({ alter:true }).then(() => {
   console.log('Default mode: Sync state between sequelize and database.')
